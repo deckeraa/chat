@@ -72,3 +72,19 @@ div.avatar img {
 ul {
   list-style: none;
 }
+
+.recent-message .close-button {
+    float: right;
+    width: 25px;
+    height: 25px;
+    background: url("../img/close.png");
+    background-position: 0px -25px;
+}
+
+.recent-message .close-button:hover {
+    float: right;
+    width: 25px;
+    height: 25px;
+    background: url("../img/close.png");
+    background-position: 0px 0px;
+}

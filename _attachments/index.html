@@ -50,7 +50,8 @@
         <h3>Recent Messages</h3>
         <ul id="items">
           {{#items}}
-            <li>
+            <li class="recent-message">
+              <div class="close-button" onclick="console.log('close clicked')" />
               <div class="avatar">
                 {{#gravatar_url}}<img src="{{gravatar_url}}" alt="{{name}}"/>{{/gravatar_url}}
                 <div class="name">
@@ -58,7 +59,7 @@
                 </div>
               </div>
               <p>{{message}}</p>
-              <img src="/chat/{{id}}/{{attachment}}"></p>
+              <img src="/chat/{{id}}/{{attachment}}" />
               <div style="clear:left;"></div>
             </li>
           {{/items}}

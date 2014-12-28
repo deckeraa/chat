@@ -11,9 +11,13 @@ This is a picture-and-chat application.
 2.5h
 
 ** Display the images inline
-   CLOCK: [2014-12-28 Sun 01:03]
+   CLOCK: [2014-12-28 Sun 01:03]--[2014-12-28 Sun 01:30] =>  0:27
    CLOCK: [2014-12-27 Sat 23:58]--[2014-12-28 Sun 00:00] =>  0:02
 1h 
+
+** Add a button to delete chats from the web interface.
+   CLOCK: [2014-12-28 Sun 01:35]
+.5h
 
 ** Display an upload preview.
 1.5h
