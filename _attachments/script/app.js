@@ -50,7 +50,10 @@ $(function() {
                 profileReady : function(profile) {
                     $("#create-message").submit(function(e){
                         e.preventDefault();
-                        var form = this, doc = $(form).serializeObject();
+                        var form = this;
+                        var doc = $(form).serializeObject();
+                        delete doc._id;
+                        delete doc._rev;
                         doc.created_at = new Date();
                         doc.profile = profile;
 
@@ -63,24 +66,29 @@ $(function() {
                             var rev = couchDoc.rev || couchDoc._rev;
                             $(form).find('input#_rev').val(rev);
                             $(form).ajaxSubmit({
-                                url:  "/chat/woof",
+                                url:  "/chat/" + id,
                                 success: function(response) {
                                     console.log(response);
                                 }});
                         }
 
-                        $.couch.db(input_db).openDoc(input_id, {
+                        $.couch.db(input_db).saveDoc(doc, {
                             success: function(couchDoc) {
-                                console.log("success");
                                 submit(couchDoc);
-                            },
-                            error: function(status) {
-                                console.log("failure");
-                                $.couch.db(input_db).saveDoc({"_id":input_id}, {
-                                    success: function(couchDoc) {
-                                        submit(couchDoc);
-                                    }});
                             }});
+
+                        // $.couch.db(input_db).openDoc(input_id, {
+                        //     success: function(couchDoc) {
+                        //         console.log("success");
+                        //         submit(couchDoc);
+                        //     },
+                        //     error: function(status) {
+                        //         console.log("failure");
+                        //         $.couch.db(input_db).saveDoc({"_id":input_id}, {
+                        //             success: function(couchDoc) {
+                        //                 submit(couchDoc);
+                        //             }});
+                        //     }});
 
                         // db.saveDoc(doc, {success : function(data) {
 

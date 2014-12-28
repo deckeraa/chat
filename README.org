@@ -1,17 +1,20 @@
 * Chat
 
-This is a picture-and-chat application
+This is a picture-and-chat application.
 
 * Core Features
 ** Figure out how to attach files
-   CLOCK: [2014-12-27 Sat 22:21]
+   CLOCK: [2014-12-27 Sat 22:21]--[2014-12-27 Sat 23:48] =>  1:27
    CLOCK: [2014-12-27 Sat 21:43]--[2014-12-27 Sat 22:18] =>  0:35
    CLOCK: [2014-12-27 Sat 16:55]--[2014-12-27 Sat 17:26] =>  0:31
    CLOCK: [2014-12-27 Sat 15:58]--[2014-12-27 Sat 16:20] =>  0:22
 2.5h
 
 ** Display the images inline
-.75h 
+1h 
+
+** Display an upload preview.
+1.5h
 
 ** Get documentation for the couchapp docs
 1h
