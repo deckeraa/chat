@@ -53,7 +53,42 @@ $(function() {
                         var form = this, doc = $(form).serializeObject();
                         doc.created_at = new Date();
                         doc.profile = profile;
-                        db.saveDoc(doc, {success : function() {form.reset();}});
+
+                        var input_db = "chat";//$('.documentForm input#_db').val();
+                        var input_id = $(form).find('input#_id').val();
+                        var input_rev = $(form).find('#_rev').val();
+
+                        var submit = function (couchDoc) {
+                            var id = couchDoc.id || couchDoc._id;
+                            var rev = couchDoc.rev || couchDoc._rev;
+                            $(form).find('input#_rev').val(rev);
+                            $(form).ajaxSubmit({
+                                url:  "/chat/woof",
+                                success: function(response) {
+                                    console.log(response);
+                                }});
+                        }
+
+                        $.couch.db(input_db).openDoc(input_id, {
+                            success: function(couchDoc) {
+                                console.log("success");
+                                submit(couchDoc);
+                            },
+                            error: function(status) {
+                                console.log("failure");
+                                $.couch.db(input_db).saveDoc({"_id":input_id}, {
+                                    success: function(couchDoc) {
+                                        submit(couchDoc);
+                                    }});
+                            }});
+
+                        // db.saveDoc(doc, {success : function(data) {
+
+                        //     $(form).find("#attachment").ajaxSubmit({url: "/" + db.name + "/" + data.id, success: function(response) {
+                        //         alert("Your attachment was submitted.");
+                        //         form.reset();
+                        //     }});
+                        // }});
                         return false;
                     }).find("input").focus();
                 }

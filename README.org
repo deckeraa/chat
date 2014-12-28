@@ -1,33 +1,17 @@
-## Generated CouchApp
+* Chat
 
-This is meant to be an example CouchApp and to ship with most of the CouchApp goodies.
+This is a picture-and-chat application
 
-Clone with git:
+* Core Features
+** Figure out how to attach files
+   CLOCK: [2014-12-27 Sat 22:21]
+   CLOCK: [2014-12-27 Sat 21:43]--[2014-12-27 Sat 22:18] =>  0:35
+   CLOCK: [2014-12-27 Sat 16:55]--[2014-12-27 Sat 17:26] =>  0:31
+   CLOCK: [2014-12-27 Sat 15:58]--[2014-12-27 Sat 16:20] =>  0:22
+2.5h
 
-    git clone git://github.com/couchapp/example.git
-    cd example
+** Display the images inline
+.75h 
 
-Install with 
-    
-    couchapp push . http://localhost:5984/example
-
-or (if you have security turned on)
-
-    couchapp push . http://adminname:adminpass@localhost:5984/example
-  
-You can also create this app by running
-
-    couchapp generate example && cd example
-    couchapp push . http://localhost:5984/example
-
-Deprecated: *couchapp generate proto && cd proto*
-
-
-## Todo
-
-* factor CouchApp Commonjs to jquery.couch.require.js
-* use $.couch.app in app.js
-
-## License
-
-Apache 2.0
+** Get documentation for the couchapp docs
+1h
