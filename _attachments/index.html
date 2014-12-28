@@ -51,7 +51,8 @@
         <ul id="items">
           {{#items}}
             <li class="recent-message">
-              <div class="close-button" onclick="console.log('close clicked')" />
+              <!--              <div class="close-button" onclick="db.removeDoc({{id}}, {success: function (data){ console.log('deleted',data); }});" /> -->
+              <div class="close-button" onclick="var par = $(this).parent('.recent-message');$.couch.db('chat').removeDoc( {'_id': '{{id}}', '_rev': '{{rev}}' }, {'success': function (data) { par.fadeOut(2000,null, function(){this.remove();});  }});" />
               <div class="avatar">
                 {{#gravatar_url}}<img src="{{gravatar_url}}" alt="{{name}}"/>{{/gravatar_url}}
                 <div class="name">

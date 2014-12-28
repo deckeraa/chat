@@ -8,6 +8,7 @@ function(doc) {
       }
       emit(doc.created_at, {
           id:doc._id,
+          rev:doc._rev,
           message:doc.message,
           gravatar_url : p.gravatar_url,
           nickname : p.nickname,
